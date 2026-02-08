@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<title>Edit Proyek</title>
+</head>
+<body>
+
+<div class="container">
+<h2>Edit Proyek</h2>
+
+<form method="post">
+<label>Nama Proyek</label>
+<input name="project" value="{{ row[0] }}">
+
+<label>Skill</label>
+<input name="skill" value="{{ row[1] }}">
+
+<label>Deskripsi</label>
+<textarea name="deskripsi" rows="4">{{ row[2] }}</textarea>
+
+<button>Update Proyek</button>
+</form>
+
+<a href="/data">Batal</a>
+</div>
+
+</body>
+</html>

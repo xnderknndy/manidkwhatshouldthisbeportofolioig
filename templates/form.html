@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <title>Form Proyek</title>
+</head>
+<body>
+
+<div class="container">
+  <h2>{{ 'Edit Proyek' if row else 'Input Proyek Siswa' }}</h2>
+
+  <form method="post">
+
+    <label>Nama Proyek</label>
+    <input 
+      name="project"
+      placeholder="Contoh: Website Portofolio"
+      value="{{ row[1] if row else '' }}"
+      required
+    >
+
+    <label>Skill yang Digunakan</label>
+    <input 
+      name="skill"
+      placeholder="HTML, CSS, Python, Flask"
+      value="{{ row[2] if row else '' }}"
+      required
+    >
+
+    <label>Deskripsi Proyek</label>
+    <textarea 
+      name="deskripsi"
+      rows="4"
+      placeholder="Jelaskan tujuan dan fungsi proyek"
+      required
+    >{{ row[3] if row else '' }}</textarea>
+
+    <button type="submit">
+      {{ 'Update Proyek' if row else 'Simpan Proyek' }}
+    </button>
+  </form>
+
+  <a href="/data">Kembali</a>
+</div>
+
+</body>
+</html>
